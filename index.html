@@ -6,6 +6,23 @@
     <title>Lumina AI | Home</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Custom scrollbar for the syllabus textarea */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
 </head>
 <body class="bg-[#f8fafc] text-[#1e293b]">
     <aside class="fixed left-0 top-0 h-screen w-64 bg-white border-r border-slate-200 hidden lg:block">
@@ -34,7 +51,7 @@
         <header class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-6">
             <div>
                 <h2 class="text-3xl font-black tracking-tight">Your AI Workspace</h2>
-                <p class="text-slate-400 font-medium">Upload a syllabus to start your adaptive journey.</p>
+                <p class="text-slate-400 font-medium">Input your syllabus to start your adaptive journey.</p>
             </div>
             <div class="flex items-center gap-4">
                 <div class="text-right hidden sm:block">
@@ -46,19 +63,25 @@
         </header>
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-            <!-- Syllabus Upload Card -->
+            <!-- Syllabus Input Card -->
             <div class="lg:col-span-2 bg-white p-8 rounded-[2.5rem] border border-slate-200 shadow-sm relative overflow-hidden group">
                 <div class="relative z-10">
                     <h3 class="text-xl font-bold mb-2">Initialize New Course</h3>
-                    <p class="text-slate-400 mb-8 max-w-sm">Upload any PDF/Text syllabus. Our AI will map the concepts and generate your test suite.</p>
+                    <p class="text-slate-400 mb-6 max-w-sm">Type or paste your syllabus text. Our AI will map the concepts and generate your test suite.</p>
                     
-                    <div class="border-2 border-dashed border-slate-200 rounded-3xl p-10 flex flex-col items-center justify-center bg-slate-50 hover:bg-white hover:border-indigo-400 transition-all cursor-pointer group-hover:shadow-inner">
-                        <i class="fas fa-cloud-upload-alt text-4xl text-indigo-300 mb-4"></i>
-                        <p class="font-bold text-slate-600">Drop your syllabus here</p>
-                        <p class="text-xs text-slate-400 mt-1">PDF, DOCX or Images supported</p>
+                    <div class="relative">
+                        <textarea 
+                            class="w-full h-48 p-6 bg-slate-50 border-2 border-slate-100 rounded-3xl focus:ring-4 focus:ring-indigo-50 focus:border-indigo-400 focus:bg-white transition-all outline-none text-slate-700 font-medium resize-none custom-scrollbar"
+                            placeholder="Paste Course Objectives, Module 1: Introduction to..., Module 2: ..."></textarea>
+                        <div class="absolute bottom-4 right-4">
+                            <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-2xl font-bold flex items-center gap-2 shadow-lg shadow-indigo-100 transition-all active:scale-95">
+                                <i class="fas fa-wand-magic-sparkles"></i>
+                                Analyze Syllabus
+                            </button>
+                        </div>
                     </div>
                 </div>
-                <i class="fas fa-file-pdf absolute -bottom-10 -right-10 text-slate-50 text-[12rem] opacity-50"></i>
+                <i class="fas fa-file-lines absolute -bottom-10 -right-10 text-slate-50 text-[12rem] opacity-50"></i>
             </div>
 
             <!-- Active Course -->
