@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -160,8 +161,15 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Message Box for Feedback */
@@ -174,10 +182,20 @@
             text-align: center;
         }
 
-        .error { background: #fff5f5; color: #c53030; border: 1px solid #feb2b2; }
-        .success { background: #f0fff4; color: #276749; border: 1px solid #9ae6b4; }
+        .error {
+            background: #fff5f5;
+            color: #c53030;
+            border: 1px solid #feb2b2;
+        }
+
+        .success {
+            background: #f0fff4;
+            color: #276749;
+            border: 1px solid #9ae6b4;
+        }
     </style>
 </head>
+
 <body>
 
     <div class="auth-container">
@@ -200,7 +218,8 @@
                     <input type="password" id="login-password" placeholder="••••••••" required>
                 </div>
                 <div class="form-options">
-                    <a href="#" onclick="showMessage('Password reset link sent to your email!', 'success')">Forgot Password?</a>
+                    <a href="#" onclick="showMessage('Password reset link sent to your email!', 'success')">Forgot
+                        Password?</a>
                 </div>
                 <button type="submit" class="btn">Sign In</button>
             </form>
@@ -242,7 +261,7 @@
             const loginForm = document.getElementById('login-form');
             const signupForm = document.getElementById('signup-form');
             const messageBox = document.getElementById('message-box');
-            
+
             // Clear messages when switching
             messageBox.style.display = 'none';
 
@@ -258,11 +277,11 @@
         // Handle Form Submission
         function handleAuth(event, type) {
             event.preventDefault();
-            
+
             if (type === 'signup') {
                 const pass = document.getElementById('signup-password').value;
                 const confirm = document.getElementById('signup-confirm').value;
-                
+
                 if (pass !== confirm) {
                     showMessage("Passwords do not match!", "error");
                     return;
@@ -271,6 +290,7 @@
             } else {
                 // Mock login success
                 showMessage("Login successful! Welcome to Lumina AI.", "success");
+                setTimeout(() => window.location.href = 'index.html', 2000);
             }
         }
 
@@ -281,7 +301,7 @@
             box.className = ''; // Reset
             box.classList.add(type);
             box.style.display = 'block';
-            
+
             // Auto hide after 5 seconds
             setTimeout(() => {
                 box.style.display = 'none';
@@ -289,4 +309,5 @@
         }
     </script>
 </body>
+
 </html>
